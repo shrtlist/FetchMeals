@@ -34,7 +34,7 @@ struct MealDetailView: View {
                         .font(.headline)
                         .padding(.top)
 
-                    ForEach(meal.ingredients, id: \.self) { ingredient in
+                    ForEach(meal.ingredientsWithMeasurements, id: \.self) { ingredient in
                         Text(ingredient)
                     }
 

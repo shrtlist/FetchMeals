@@ -18,6 +18,7 @@
 		1C69C56E2C6AD9E700CE608B /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C56D2C6AD9E700CE608B /* MealViewModel.swift */; };
 		1C69C5702C6ADA4500CE608B /* DessertListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C56F2C6ADA4500CE608B /* DessertListView.swift */; };
 		1C69C5722C6ADA5E00CE608B /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C5712C6ADA5E00CE608B /* MealDetailView.swift */; };
+		1C69C5742C6BCE5600CE608B /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C5732C6BCE5600CE608B /* MealDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		1C69C56D2C6AD9E700CE608B /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		1C69C56F2C6ADA4500CE608B /* DessertListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertListView.swift; sourceTree = "<group>"; };
 		1C69C5712C6ADA5E00CE608B /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
+		1C69C5732C6BCE5600CE608B /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1C69C5652C6AD8FC00CE608B /* Meal.swift */,
+				1C69C5732C6BCE5600CE608B /* MealDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				1C69C5722C6ADA5E00CE608B /* MealDetailView.swift in Sources */,
 				1C69C5662C6AD8FC00CE608B /* Meal.swift in Sources */,
 				1C69C56E2C6AD9E700CE608B /* MealViewModel.swift in Sources */,
+				1C69C5742C6BCE5600CE608B /* MealDetail.swift in Sources */,
 				1C69C5702C6ADA4500CE608B /* DessertListView.swift in Sources */,
 				1C69C53B2C6AD84100CE608B /* FetchMealsApp.swift in Sources */,
 				1C69C56C2C6AD99400CE608B /* MealService.swift in Sources */,
