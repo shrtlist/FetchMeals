@@ -11,9 +11,9 @@ struct DessertListView: View {
     @StateObject private var viewModel = MealViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(viewModel.meals) { meal in
-                NavigationLink(destination: MealDetailView(mealID: meal.id, viewModel: viewModel)) {
+                NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
                     HStack {
                         if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
                             AsyncImage(url: url) { image in

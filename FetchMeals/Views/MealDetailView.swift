@@ -9,16 +9,13 @@ import SwiftUI
 
 struct MealDetailView: View {
     let mealID: String
+    let mealName: String
     @ObservedObject var viewModel: MealViewModel
 
     var body: some View {
         ScrollView { // Wrap the content in a ScrollView
             VStack(alignment: .leading) { // Align content to the leading edge
                 if let meal = viewModel.selectedMeal {
-                    Text(meal.strMeal)
-                        .font(.largeTitle)
-                        .padding()
-
                     if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
                         AsyncImage(url: url) { image in
                             image.resizable()
@@ -53,7 +50,7 @@ struct MealDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("Meal Details")
+        .navigationTitle(mealName)
         .task {
             await viewModel.loadMealDetail(id: mealID)
         }
