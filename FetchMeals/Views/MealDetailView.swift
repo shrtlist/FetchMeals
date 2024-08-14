@@ -10,6 +10,8 @@ import SwiftUI
 struct MealDetailView: View {
     let mealID: String
     let mealName: String
+    private let height = 200.0
+    private let cornerRadius = 10.0
     @ObservedObject var viewModel: MealViewModel
 
     var body: some View {
@@ -20,8 +22,8 @@ struct MealDetailView: View {
                         AsyncImage(url: url) { image in
                             image.resizable()
                                 .scaledToFit()
-                                .frame(height: 200)
-                                .cornerRadius(10)
+                                .frame(height: height)
+                                .cornerRadius(cornerRadius)
                         } placeholder: {
                             ProgressView()
                         }

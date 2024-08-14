@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DessertListView: View {
     @StateObject private var viewModel = MealViewModel()
+    private let widthAndHeight = 50.0
+    private let cornerRadius = 5.0
 
     var body: some View {
         NavigationStack {
@@ -20,13 +22,13 @@ struct DessertListView: View {
                                 if let image = phase.image {
                                     image.resizable() // Displays the loaded image.
                                         .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(5)
+                                        .frame(width: widthAndHeight, height: widthAndHeight)
+                                        .cornerRadius(cornerRadius)
                                 } else if phase.error != nil {
                                     Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
                                         .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(5)
+                                        .frame(width: widthAndHeight, height: widthAndHeight)
+                                        .cornerRadius(cornerRadius)
                                 } else {
                                     // Acts as a placeholder.
                                     ProgressView()
