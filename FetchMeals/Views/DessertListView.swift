@@ -19,17 +19,18 @@ struct DessertListView: View {
                     HStack {
                         if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
                             AsyncImage(url: url) { phase in
-                                if let image = phase.image {
-                                    image.resizable() // Displays the loaded image.
-                                        .scaledToFit()
-                                        .frame(width: widthAndHeight, height: widthAndHeight)
-                                        .cornerRadius(cornerRadius)
-                                } else if phase.error != nil {
+                                switch phase {
+                                case .failure:
                                     Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
                                         .scaledToFit()
                                         .frame(width: widthAndHeight, height: widthAndHeight)
                                         .cornerRadius(cornerRadius)
-                                } else {
+                                case .success(let image):
+                                    image.resizable() // Displays the loaded image.
+                                        .scaledToFit()
+                                        .frame(width: widthAndHeight, height: widthAndHeight)
+                                        .cornerRadius(cornerRadius)
+                                default:
                                     // Acts as a placeholder.
                                     ProgressView()
                                 }
