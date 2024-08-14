@@ -16,13 +16,21 @@ struct DessertListView: View {
                 NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
                     HStack {
                         if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
-                            AsyncImage(url: url) { image in
-                                image.resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50, height: 50)
-                                    .cornerRadius(5)
-                            } placeholder: {
-                                ProgressView()
+                            AsyncImage(url: url) { phase in
+                                if let image = phase.image {
+                                    image.resizable() // Displays the loaded image.
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(5)
+                                } else if phase.error != nil {
+                                    Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(5)
+                                } else {
+                                    // Acts as a placeholder.
+                                    ProgressView()
+                                }
                             }
                         }
 
