@@ -45,6 +45,9 @@ struct DessertListView: View {
             .task {
                 await viewModel.loadDesserts()
             }
+            .refreshable {
+                await viewModel.loadDesserts()
+            }
         }
     }
 }
