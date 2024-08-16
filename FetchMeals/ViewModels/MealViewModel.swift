@@ -11,15 +11,21 @@ import SwiftUI
 class MealViewModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var selectedMeal: MealDetail?
+    @Published var isLoading = false
 
     private let mealService = MealService()
 
     func loadDesserts() async {
+        guard !isLoading else { return }
+        isLoading = true
+
         do {
             meals = try await mealService.fetchDesserts()
         } catch {
             print("Failed to load meals: \(error.localizedDescription)")
         }
+
+        isLoading = false
     }
 
     func loadMealDetail(id: String) async {

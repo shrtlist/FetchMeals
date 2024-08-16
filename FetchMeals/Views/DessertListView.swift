@@ -14,31 +14,39 @@ struct DessertListView: View {
 
     var body: some View {
         NavigationStack {
-            List(viewModel.meals) { meal in
-                NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
-                    HStack {
-                        if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
-                            AsyncImage(url: url) { phase in
-                                switch phase {
-                                case .failure:
-                                    Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
-                                        .scaledToFit()
-                                        .frame(width: widthAndHeight, height: widthAndHeight)
-                                        .cornerRadius(cornerRadius)
-                                case .success(let image):
-                                    image.resizable() // Displays the loaded image.
-                                        .scaledToFit()
-                                        .frame(width: widthAndHeight, height: widthAndHeight)
-                                        .cornerRadius(cornerRadius)
-                                default:
-                                    // Acts as a placeholder.
-                                    ProgressView()
+            List {
+                ForEach(viewModel.meals) { meal in
+                    NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
+                        HStack {
+                            if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
+                                AsyncImage(url: url) { phase in
+                                    switch phase {
+                                    case .failure:
+                                        Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
+                                            .scaledToFit()
+                                            .frame(width: widthAndHeight, height: widthAndHeight)
+                                            .cornerRadius(cornerRadius)
+                                    case .success(let image):
+                                        image.resizable() // Displays the loaded image.
+                                            .scaledToFit()
+                                            .frame(width: widthAndHeight, height: widthAndHeight)
+                                            .cornerRadius(cornerRadius)
+                                    default:
+                                        // Acts as a placeholder.
+                                        ProgressView()
+                                    }
                                 }
                             }
-                        }
 
-                        Text(meal.strMeal)
+                            Text(meal.strMeal)
+                        }
                     }
+                }
+                if viewModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                } else if viewModel.meals.isEmpty {
+                    ContentUnavailableView.init("No results", systemImage: "birthday.cake.fill")
                 }
             }
             .navigationTitle("Desserts")
