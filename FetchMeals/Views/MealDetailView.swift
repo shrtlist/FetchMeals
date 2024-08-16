@@ -18,23 +18,22 @@ struct MealDetailView: View {
         ScrollView { // Wrap the content in a ScrollView
             VStack(alignment: .leading) { // Align content to the leading edge
                 if let meal = viewModel.selectedMeal {
-                    if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
-                        AsyncImage(url: url) { phase in
-                            switch phase {
-                            case .failure:
-                                Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
-                                    .scaledToFit()
-                                    .frame(height: height)
-                                    .cornerRadius(cornerRadius)
-                            case .success(let image):
-                                image.resizable() // Displays the loaded image.
-                                    .scaledToFit()
-                                    .frame(height: height)
-                                    .cornerRadius(cornerRadius)
-                            default:
-                                // Acts as a placeholder.
-                                ProgressView()
-                            }
+                    let url = URL(string: meal.strMealThumb)
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .failure:
+                            Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
+                                .scaledToFit()
+                                .frame(height: height)
+                                .cornerRadius(cornerRadius)
+                        case .success(let image):
+                            image.resizable() // Displays the loaded image.
+                                .scaledToFit()
+                                .frame(height: height)
+                                .cornerRadius(cornerRadius)
+                        default:
+                            // Acts as a placeholder.
+                            ProgressView()
                         }
                     }
 
