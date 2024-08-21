@@ -53,12 +53,6 @@ struct MealDetail: Codable {
     let strMeasure19: String?
     let strMeasure20: String?
 
-    var ingredients: [String] {
-        [strIngredient1, strIngredient2, strIngredient3]
-            .compactMap { $0 }
-            .filter { !$0.isEmpty }
-    }
-
     // Combine ingredients and measurements
     var ingredientsWithMeasurements: [String] {
         var ingredients: [String] = []
