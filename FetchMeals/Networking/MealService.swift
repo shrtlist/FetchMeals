@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MealService {
+final class MealService: MealServiceProtocol {
     private let baseURL = "https://themealdb.com/api/json/v1/1/"
 
     func fetchDesserts() async throws -> [Meal] {

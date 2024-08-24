@@ -11,7 +11,8 @@ import XCTest
 final class FetchMealsTests: XCTestCase {
 
     @MainActor func testfetchDesserts() async {
-        let sut = MealViewModel()
+        let mockMealService = MockMealService()
+        let sut = MealViewModel(mealService: mockMealService)
 
         await sut.loadDesserts()
 
@@ -21,7 +22,8 @@ final class FetchMealsTests: XCTestCase {
     @MainActor func testfetchMealDetail() async {
         let idMeal = "52966"
 
-        let sut = MealViewModel()
+        let mockMealService = MockMealService()
+        let sut = MealViewModel(mealService: mockMealService)
 
         await sut.loadMealDetail(id: idMeal)
 

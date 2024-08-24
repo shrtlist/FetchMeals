@@ -17,6 +17,8 @@
 		1C69C5702C6ADA4500CE608B /* DessertListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C56F2C6ADA4500CE608B /* DessertListView.swift */; };
 		1C69C5722C6ADA5E00CE608B /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C5712C6ADA5E00CE608B /* MealDetailView.swift */; };
 		1C69C5742C6BCE5600CE608B /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C5732C6BCE5600CE608B /* MealDetail.swift */; };
+		1CA6B3892C79593E007A07AE /* MealServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6B3882C79593E007A07AE /* MealServiceProtocol.swift */; };
+		1CA6B38B2C795993007A07AE /* MockMealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6B38A2C795993007A07AE /* MockMealService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		1C69C56F2C6ADA4500CE608B /* DessertListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertListView.swift; sourceTree = "<group>"; };
 		1C69C5712C6ADA5E00CE608B /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 		1C69C5732C6BCE5600CE608B /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
+		1CA6B3882C79593E007A07AE /* MealServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealServiceProtocol.swift; sourceTree = "<group>"; };
+		1CA6B38A2C795993007A07AE /* MockMealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMealService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				1C69C56B2C6AD99400CE608B /* MealService.swift */,
+				1CA6B3882C79593E007A07AE /* MealServiceProtocol.swift */,
+				1CA6B38A2C795993007A07AE /* MockMealService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 				1C69C5742C6BCE5600CE608B /* MealDetail.swift in Sources */,
 				1C69C5702C6ADA4500CE608B /* DessertListView.swift in Sources */,
 				1C69C53B2C6AD84100CE608B /* FetchMealsApp.swift in Sources */,
+				1CA6B38B2C795993007A07AE /* MockMealService.swift in Sources */,
+				1CA6B3892C79593E007A07AE /* MealServiceProtocol.swift in Sources */,
 				1C69C56C2C6AD99400CE608B /* MealService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
