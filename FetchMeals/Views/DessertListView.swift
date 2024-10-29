@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DessertListView: View {
     @StateObject private var viewModel = MealViewModel()
+    @State private var searchText = ""
     private let widthAndHeight = 50.0
     private let cornerRadius = 5.0
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.meals) { meal in
+                ForEach(searchResults) { meal in
                     NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
                         HStack {
                             if let urlString = meal.strMealThumb, let url = URL(string: urlString) {
@@ -49,6 +50,7 @@ struct DessertListView: View {
                     ContentUnavailableView.init("No results", systemImage: "birthday.cake.fill")
                 }
             }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
             .navigationTitle("Desserts")
             .task {
                 await viewModel.loadDesserts()
@@ -56,6 +58,16 @@ struct DessertListView: View {
             .refreshable {
                 await viewModel.loadDesserts()
             }
+        }
+    }
+
+    var searchResults: [Meal] {
+        let meals = viewModel.meals
+
+        if searchText.isEmpty {
+            return meals
+        } else {
+            return meals.filter { $0.strMeal.localizedCaseInsensitiveContains(searchText) }
         }
     }
 }
