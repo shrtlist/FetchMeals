@@ -8,9 +8,10 @@
 import XCTest
 @testable import FetchMeals
 
+@MainActor
 final class FetchMealsTests: XCTestCase {
 
-    @MainActor func testfetchDesserts() async {
+    func testfetchDesserts() async {
         let mockMealService = MockMealService()
         let sut = MealViewModel(mealService: mockMealService)
 
@@ -19,7 +20,7 @@ final class FetchMealsTests: XCTestCase {
         XCTAssertTrue(sut.meals.count > 0)
     }
 
-    @MainActor func testfetchMealDetail() async {
+    func testfetchMealDetail() async {
         let idMeal = "52966"
 
         let mockMealService = MockMealService()
