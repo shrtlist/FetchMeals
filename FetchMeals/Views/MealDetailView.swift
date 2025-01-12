@@ -12,7 +12,7 @@ struct MealDetailView: View {
     let mealName: String
     private let height = 200.0
     private let cornerRadius = 10.0
-    @ObservedObject var viewModel: MealViewModel
+    @State var viewModel: MealViewModel
 
     var body: some View {
         ScrollView { // Wrap the content in a ScrollView

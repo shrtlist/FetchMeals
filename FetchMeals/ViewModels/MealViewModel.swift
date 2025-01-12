@@ -8,10 +8,10 @@
 import SwiftUI
 
 @MainActor
-final class MealViewModel: ObservableObject {
-    @Published var meals: [Meal] = []
-    @Published var selectedMeal: MealDetail?
-    @Published var isLoading = false
+@Observable final class MealViewModel {
+    var meals: [Meal] = []
+    var selectedMeal: MealDetail?
+    var isLoading = false
     private let mealService: MealServiceProtocol
 
     init(mealService: MealServiceProtocol = MealService()) {

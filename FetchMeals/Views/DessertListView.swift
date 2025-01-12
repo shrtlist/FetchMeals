@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct DessertListView: View {
-    @StateObject private var viewModel = MealViewModel()
+    @State private var viewModel = MealViewModel()
     @State private var searchText = ""
 
     var body: some View {
         NavigationStack {
-            List(searchResults) { meal in
-                NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
-                    MealRowView(meal: meal)
-                }
+            Group {
                 if viewModel.isLoading {
                     ProgressView()
                         .frame(maxWidth: .infinity, alignment: .center)
                 } else if viewModel.meals.isEmpty {
-                    ContentUnavailableView.init("No results", systemImage: "birthday.cake.fill")
+                    ScrollView {
+                        ContentUnavailableView.init("No results", systemImage: "birthday.cake.fill")
+                    }
+                } else {
+                    List(searchResults) { meal in
+                        NavigationLink(destination: MealDetailView(mealID: meal.id, mealName: meal.strMeal, viewModel: viewModel)) {
+                            MealRowView(meal: meal)
+                        }
+                    }
                 }
             }
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
