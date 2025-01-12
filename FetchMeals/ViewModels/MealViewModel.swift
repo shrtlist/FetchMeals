@@ -32,10 +32,15 @@ import SwiftUI
     }
 
     func loadMealDetail(id: String) async {
+        guard !isLoading else { return }
+        isLoading = true
+
         do {
             selectedMeal = try await mealService.fetchMealDetail(id: id)
         } catch {
             print("Failed to load meal detail: \(error.localizedDescription)")
         }
+
+        isLoading = false
     }
 }
