@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DessertListView: View {
+struct MealListView: View {
     @State private var viewModel = MealViewModel()
     @State private var searchText = ""
 
