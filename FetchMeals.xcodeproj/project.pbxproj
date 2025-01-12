@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1BB59E2D33433600562892 /* MealRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1BB59D2D33433000562892 /* MealRowView.swift */; };
 		1C69C53B2C6AD84100CE608B /* FetchMealsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69C53A2C6AD84100CE608B /* FetchMealsApp.swift */; };
 		1C69C53F2C6AD84200CE608B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C69C53E2C6AD84200CE608B /* Assets.xcassets */; };
 		1C69C5422C6AD84200CE608B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C69C5412C6AD84200CE608B /* Preview Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1BB59D2D33433000562892 /* MealRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRowView.swift; sourceTree = "<group>"; };
 		1C69C5372C6AD84100CE608B /* FetchMeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchMeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C69C53A2C6AD84100CE608B /* FetchMealsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMealsApp.swift; sourceTree = "<group>"; };
 		1C69C53E2C6AD84200CE608B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				1C69C56F2C6ADA4500CE608B /* DessertListView.swift */,
 				1C69C5712C6ADA5E00CE608B /* MealDetailView.swift */,
+				1C1BB59D2D33433000562892 /* MealRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				1C69C53B2C6AD84100CE608B /* FetchMealsApp.swift in Sources */,
 				1CA6B38B2C795993007A07AE /* MockMealService.swift in Sources */,
 				1CA6B3892C79593E007A07AE /* MealServiceProtocol.swift in Sources */,
+				1C1BB59E2D33433600562892 /* MealRowView.swift in Sources */,
 				1C69C56C2C6AD99400CE608B /* MealService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
