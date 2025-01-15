@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MealRowView: View {
-    var meal: Meal
+    let meal: Meal
     private let cornerRadius = 5.0
     private let size = 50.0
 
@@ -18,20 +18,20 @@ struct MealRowView: View {
                 AsyncImage(url: url) { phase in
                     switch phase {
                     case .failure:
-                        Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
-                            .scaledToFit()
-                            .frame(width: size, height: size)
-                            .cornerRadius(cornerRadius)
+                        // Indicates an error, show placeholder image
+                        PlaceholderImageView(size: size)
                     case .success(let image):
                         image.resizable() // Displays the loaded image.
                             .scaledToFit()
-                            .frame(width: size, height: size)
                             .cornerRadius(cornerRadius)
                     default:
                         // Acts as a placeholder.
                         ProgressView()
                     }
                 }
+                .frame(width: size, height: size)
+            } else {
+                PlaceholderImageView(size: size)
             }
             Text(meal.strMeal)
         }

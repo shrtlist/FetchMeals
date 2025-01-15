@@ -22,20 +22,17 @@ struct MealDetailView: View {
                     AsyncImage(url: url) { phase in
                         switch phase {
                         case .failure:
-                            Image(systemName: "birthday.cake.fill") // Indicates an error, show default image
-                                .scaledToFit()
-                                .frame(height: height)
-                                .cornerRadius(cornerRadius)
+                            PlaceholderImageView(size: height) // Indicates an error, show default image
                         case .success(let image):
                             image.resizable() // Displays the loaded image.
                                 .scaledToFit()
-                                .frame(height: height)
                                 .cornerRadius(cornerRadius)
                         default:
                             // Acts as a placeholder.
                             ProgressView()
                         }
                     }
+                    .frame(width: height, height: height)
 
                     Text("Ingredients:")
                         .font(.headline)
